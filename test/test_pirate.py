@@ -31,7 +31,6 @@ def test_becomes_cursed_after_enough_heinous_acts():
     pirate.commit_heinous_act()
     assert pirate.is_cursed()
 
-
 def test_a_pirate_has_booty():
     pirate = Pirate("Jack")
     assert pirate.booty == 0

@@ -1,33 +1,27 @@
 class Werewolf:
-    def __init__(self, name, location = "nowhere", human_state = True, hungry = False):
+
+    def __init__(self, name, location = "London", human_state=True, hungry=False):
         self.name = name
         self.location = location
         self.human_state = human_state
-        self.hungry = hungry
+        self.hunger_state = hungry
 
     def is_human(self):
         return self.human_state
-
+    
     def change(self):
-        if self.human_state == True:
-            self.hungry = True
-            self.human_state = False
-        else:
-            self.human_state = True
+        self.human_state = not self.human_state
+        self.hunger_state = not self.human_state
 
     def is_wolf(self):
         return not self.human_state
 
     def is_hungry(self):
-        return self.hungry
-
-    def consume(self, consumed):
-        if self.human_state == True:
+        return self.hunger_state
+    
+    def consume(self, human):
+        if self.human_state:
             return "No one was consumed"
         else:
-            consumed.status = "Dead"
-            self.hungry = False
-
-class Victim:
-    def __init__(self):
-        self.status = "Alive"
+            self.hunger_state = False
+            human.kill()

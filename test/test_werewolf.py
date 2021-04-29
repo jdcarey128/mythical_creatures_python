@@ -1,5 +1,6 @@
 import pytest
-from lib.werewolf import *
+from lib.werewolf import Werewolf
+from lib.victim import Victim
 
 def test_it_has_name():
     werewolf = Werewolf("David")
